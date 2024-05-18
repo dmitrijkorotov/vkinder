@@ -49,13 +49,9 @@ def create_message_for_candidate(first_name, last_name, url_profile):
     return result
 
 
-def run_bot(access_token, DB_PORT, DB_NAME, DB_HOST,
+def run_bot(token_community, access_token, DB_PORT, DB_NAME, DB_HOST,
             DB_ENGINE, DB_USERNAME, DB_PASSWORD):
-    token = 'vk1.a.HkYvNXPyGv1Iztk1839GGZo-'\
-            'EkwZLkrX8PeRvHWYcDK32anOUo8xUB2MQwEE2j6kce-'\
-            'B3dKTwvuDp0bLCu9U4Zp19yKtRb' \
-            '-TNsAJHGndx3SI0SPvzvTGBO6CS39_Jpp2JL4JypRT9SDwf9rQGJUh9l0x-'\
-            'MUMm1d9GcwD-gWbgLjsPW5t1R2_uB2Dze1HPs5ghkoQmBzSC8VohlXRasZtLw'
+    token = token_community
 
     DSN = "{}://{}:{}@{}:{}/{}".format(DB_ENGINE, DB_USERNAME, DB_PASSWORD,
                                        DB_HOST, DB_PORT, DB_NAME)
@@ -235,6 +231,7 @@ def run_bot(access_token, DB_PORT, DB_NAME, DB_HOST,
 
 
 if __name__ == '__main__':
+    token_community = ''
     access_token = ''
     DB_PORT = '5432'
     DB_NAME = ''
@@ -242,5 +239,5 @@ if __name__ == '__main__':
     DB_ENGINE = 'postgresql'
     DB_USERNAME = 'postgres'
     DB_PASSWORD = ''
-    run_bot(access_token, DB_PORT, DB_NAME, DB_HOST,
+    run_bot(token_community, access_token, DB_PORT, DB_NAME, DB_HOST,
             DB_ENGINE, DB_USERNAME, DB_PASSWORD)
